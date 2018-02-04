@@ -1,0 +1,44 @@
+*backup-tree*
+
+                                  backup-tree~
+
+Description ........................................... |backup-tree-description|
+Usage ................................................. |backup-tree-usage|
+    Commands .......................................... |backup-tree-commands|
+Configuration ......................................... |backup-tree-configuration|
+    Variables ......................................... |backup-tree-variables|
+
+                                                               *backup-tree.txt*
+
+==============================================================================
+DESCRIPTION                                            *backup-tree-description*
+
+Provides timestamped backups in a configurable parallel directory tree
+
+==============================================================================
+USAGE                                                        *backup-tree-usage*
+
+------------------------------------------------------------------------------
+COMMANDS                                                  *backup-tree-commands*
+                                                *:BackupTree*
+:BackupTree
+                        Opens the directory |g:backup_tree| in a vertical split.
+
+                                                *:BackupTreeCurrent*
+:BackupTreeCurrent
+                        Opens the directory in |g:backup_tree| that corresponds
+                        to your current buffers directory.
+
+
+==============================================================================
+CONFIGURATION                                        *backup-tree-configuration*
+
+------------------------------------------------------------------------------
+VARIABLES                                                *backup-tree-variables*
+
+                                                *g:backup_tree*
+g:template_other_var    Location to store the parallel backup tree
+                        (default: ~/.vim_backup).
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:fdm=manual:
