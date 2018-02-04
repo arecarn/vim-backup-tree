@@ -38,14 +38,6 @@ function! backup_tree#setup() abort
 endfunction
 
 
-if has('autocmd')
-    augroup backupext
-        autocmd!
-        autocmd BufWritePre * call backup_tree#setup()
-    augroup END
-endif
-
-
 function! backup_tree#open_current_dir() abort
     let l:backupdir = backup_tree#get_dir()
     if isdirectory(l:backupdir)
@@ -54,12 +46,7 @@ function! backup_tree#open_current_dir() abort
 endfunction
 
 
-function! backup_tree#open_dir() abort
-    execute ':vsplit ' . g:backup_tree
-endfunction
-
-
-function! parrallel_backup#remove_backups_of_deleted_files() abort
+function! backup_tree#remove_backups_of_deleted_files() abort
     " Remove backups of files that no longer exist.
     let l:files = split(globpath(g:backup_tree, '**', 1), '\n')
     let l:files += split(globpath(g:backup_tree, '**/.*', 1), '\n')
@@ -89,7 +76,6 @@ function! parrallel_backup#remove_backups_of_deleted_files() abort
     endwhile
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""{{{
 let &cpoptions = s:save_cpoptions
