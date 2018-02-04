@@ -31,9 +31,9 @@ endif
 
 " COMMANDS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! BackupTree execute ':vsplit ' . g:backup_tree<CR>
+command! BackupTree execute ':vsplit ' . g:backup_tree
 
-command! BackupTreeCurrent call  backup_tree#open_current_dir()
+command! BackupTreeCurrent call backup_tree#open_current_dir()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""{{{
