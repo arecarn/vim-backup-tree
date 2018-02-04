@@ -30,6 +30,9 @@ endfunction
 
 
 function! backup_tree#setup() abort
+    if !isdirectory(g:backup_tree)
+        call mkdir(g:backup_tree, 'p', 0700)
+    endif
     let &backupdir=backup_tree#get_dir()
     if !isdirectory(&backupdir)
         call mkdir(&backupdir, 'p', 0700)
