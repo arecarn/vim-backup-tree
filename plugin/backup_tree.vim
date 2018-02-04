@@ -31,7 +31,7 @@ endif
 
 " COMMANDS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! BackupTree execute ':vsplit ' . g:backup_tree_dir<CR>
+command! BackupTree execute ':vsplit ' . g:backup_tree<CR>
 
 command! BackupTreeCurrent call  backup_tree#open_current_dir()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
