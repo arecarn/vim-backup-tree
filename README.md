@@ -1,14 +1,19 @@
 # Backup Tree
 
-Provides timestamped backups in a configurable parallel directory tree
+Cross platform Vim plugin that provides timestamped backups in a parallel
+directory tree.
+
+For example if you save the file /home/user/.vimrc it will be backed up in
+/home/user/.vim_backup/home/user/.vimrc_2018-02-08-10 with the timestamp format
+being YYYY-MM-DD-HH.
 
 ## Usage
-Enable vim's built in backup feature bad Backup Tree will take care of the rest
+Enable Vim's built in backup feature and Backup Tree will take care of the rest.
 
 ```
 set backup
 
-" OPTIONAL (defaults to ~/.vim_backup)
+" Optionally set the location of your backup tree (defaults to ~/.vim_backup)
 set g:backup_tree = '~/.vim_backup_tree"
 ```
 

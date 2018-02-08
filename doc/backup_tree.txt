@@ -1,6 +1,6 @@
 *backup-tree*
 
-                                  backup-tree~
+                                  Backup Tree~
 
 Description ........................................... |backup-tree-description|
 Usage ................................................. |backup-tree-usage|
@@ -13,10 +13,26 @@ Configuration ......................................... |backup-tree-configurati
 ==============================================================================
 DESCRIPTION                                            *backup-tree-description*
 
-Provides timestamped backups in a configurable parallel directory tree
+Cross platform Vim plugin that provides timestamped backups in a parallel
+directory tree.
+
+For example if you save the file /home/user/.vimrc it will be backed up in
+/home/user/.vim_backup/home/user/.vimrc_2018-02-08-10 with the timestamp format
+being YYYY-MM-DD-HH.
 
 ==============================================================================
 USAGE                                                        *backup-tree-usage*
+
+Enable Vim's built in backup feature and Backup Tree will take care of the
+rest.
+
+EXAMPLE~
+>
+    set backup
+
+    " Optionally set the location of your backup tree
+    set g:backup_tree = '~/.vim_backup_tree"
+<
 
 ------------------------------------------------------------------------------
 COMMANDS                                                  *backup-tree-commands*
@@ -36,9 +52,9 @@ CONFIGURATION                                        *backup-tree-configuration*
 ------------------------------------------------------------------------------
 VARIABLES                                                *backup-tree-variables*
 
-                                                *g:backup_tree*
-g:template_other_var    Location to store the parallel backup tree
-                        (default: ~/.vim_backup).
+                                                                 *g:backup_tree*
+g:backup_tree           Location to store the parallel backup tree
+                        Defaults to:  ~/.vim_backup
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:fdm=manual:
