@@ -31,7 +31,7 @@ EXAMPLE~
     set backup
 
     " Optionally set the location of your backup tree
-    set g:backup_tree = '~/.vim_backup_tree"
+    let g:backup_tree = '~/.vim_backup_tree"
 <
 
 ------------------------------------------------------------------------------

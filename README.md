@@ -14,7 +14,7 @@ Enable Vim's built in backup feature and Backup Tree will take care of the rest.
 set backup
 
 " Optionally set the location of your backup tree (defaults to ~/.vim_backup)
-set g:backup_tree = '~/.vim_backup_tree"
+let g:backup_tree = '~/.vim_backup_tree"
 ```
 
 * `:BackupTree`
