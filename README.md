@@ -8,6 +8,7 @@ For example if you save the file /home/user/.vimrc it will be backed up in
 being YYYY-MM-DD-HH.
 
 ## Usage
+
 Enable Vim's built in backup feature and Backup Tree will take care of the rest.
 
 ```
