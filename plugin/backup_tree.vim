@@ -16,7 +16,7 @@ endif
 
 " GLOBALS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:backup_tree =  expand(get(g:, 'backup_tree', '~/.vim_backup'))
+let g:backup_tree =  get(g:, 'backup_tree', '~/.vim_backup')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " AUTOCMDS {{{

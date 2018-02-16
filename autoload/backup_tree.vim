@@ -13,6 +13,13 @@ set cpoptions&vim
 let s:has_windows = has('win32') || has('win64')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
+" PRIVATE FUNCTIONS {{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:get_backup_tree() abort
+    return expand(g:backup_tree)
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+
 " PUBLIC FUNCTIONS {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! backup_tree#get_dir() abort
@@ -25,13 +32,13 @@ function! backup_tree#get_dir() abort
     else
         let l:path = l:basic_path
     endif
-    return g:backup_tree . l:path
+    return s:get_backup_tree() . l:path
 endfunction
 
 
 function! backup_tree#setup() abort
-    if !isdirectory(g:backup_tree)
-        call mkdir(g:backup_tree, 'p', 0700)
+    if !isdirectory(s:get_backup_tree())
+        call mkdir(s:get_backup_tree(), 'p', 0700)
     endif
     let &backupdir=backup_tree#get_dir()
     if !isdirectory(&backupdir)
@@ -51,8 +58,8 @@ endfunction
 
 function! backup_tree#remove_backups_of_deleted_files() abort
     " Remove backups of files that no longer exist.
-    let l:files = split(globpath(g:backup_tree, '**', 1), '\n')
-    let l:files += split(globpath(g:backup_tree, '**/.*', 1), '\n')
+    let l:files = split(globpath(s:get_backup_tree(), '**', 1), '\n')
+    let l:files += split(globpath(s:get_backup_tree(), '**/.*', 1), '\n')
 
     let l:i = len(l:files)
     while l:i > 0
@@ -64,7 +71,7 @@ function! backup_tree#remove_backups_of_deleted_files() abort
         endif
 
         " See if the real l:backup_file still exists
-        let l:real_file = substitute(l:backup_file, escape(g:backup_tree, '\/'), '', 'g')
+        let l:real_file = substitute(l:backup_file, escape(s:get_backup_tree(), '\/'), '', 'g')
         let l:real_file = substitute(l:real_file, '_\d\d\d\d-\d\d-\d\d-\d\d$', '', 'g')
         if s:has_windows
             " converts the drive letter from
