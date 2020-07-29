@@ -24,7 +24,10 @@ let g:backup_tree =  get(g:, 'backup_tree', '~/.vim_backup')
 if has('autocmd')
     augroup backup_tree
         autocmd!
-        autocmd BufWritePre * call backup_tree#setup()
+        " TODO added BufEnter due to seeing default backupdir & backupext behavior
+        " when using neovim, but may also be a vim problem too. Need to
+        " investigate this further.
+        autocmd BufEnter,BufWritePre * call backup_tree#setup()
     augroup END
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
